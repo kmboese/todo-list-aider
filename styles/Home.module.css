@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.tabContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tab {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background-color: #f0f0f0;
+}
+
+.activeTab {
+  background-color: #0070f3;
+  color: white;
+  border-color: #0070f3;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.taskListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noTasksMessage {
+  text-align: center;
+  color: #888;
+  font-size: 1.2em;
+  padding: 20px;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 15px;
+  transition: all 0.2s ease;
+}
+
+.taskItem:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.taskContent {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.taskCheckbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #0070f3;
+}
+
+.taskDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.taskName {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.taskDueDate {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.overdueDate {
+  color: #d9534f;
+}
+
+.taskCategory {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.taskTags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.8em;
+  color: #555;
+}
+
+.taskActions {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  color: #0070f3;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: color 0.2s ease;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  color: #005bb5;
+}
+
+.addTaskButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.2s ease;
+}
+
+.addTaskButton:hover {
+  background-color: #005bb5;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.formGroup input,
+.formGroup select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.tagInput {
+  position: relative;
+}
+
+.tagInput input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.tagList .tag {
+  background-color: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.8em;
+  color: #555;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.createButton,
+.saveButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.createButton:hover,
+.saveButton:hover {
+  background-color: #005bb5;
+}
+
+.cancelButton {
+  background-color: transparent;
+  color: #0070f3;
+  border: 1px solid #0070f3;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #e0f7ff;
+}
